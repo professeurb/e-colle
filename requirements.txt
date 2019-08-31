@@ -1,0 +1,6 @@
+django
+pexpect
+reportlab
+unidecode
+pillow
+psycopg2
