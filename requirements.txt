@@ -4,3 +4,4 @@ reportlab
 unidecode
 pillow
 psycopg2
+gunicorn

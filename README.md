@@ -8,7 +8,7 @@ Langage: python3
 On commence par créer les containers et initialiser la base de données
 
 ```shell
-docker-compose run web python manage.py migrate
+docker-compose run web python e-colle/manage.py migrate
 ```
 
 puis on lance le serveur
