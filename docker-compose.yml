@@ -7,12 +7,32 @@ services:
     environment:
       POSTGRES_USER: e-colle
       POSTGRES_PASSWORD: e-colle
+    networks:
+      - database1_network
   web:
     build: .
-    # command: python manage.py runserver 0.0.0.0:8000
     volumes:
       - .:/e-colle
-    ports:
-      - "8000:8000"
+    # ports:
+    #   - "8000:8000"
     depends_on:
       - db
+    networks:
+      - nginx_network
+      - database1_network
+  nginx:
+    image: nginx:1.13
+    ports:
+      - 8000:80
+    volumes:
+      - ./config/nginx/conf.d:/etc/nginx/conf.d
+    depends_on:
+      - web
+    networks:
+      - nginx_network
+
+networks:
+  nginx_network:
+    driver: bridge
+  database1_network:
+    driver: bridge
