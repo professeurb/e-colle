@@ -5,13 +5,8 @@ Langage: python3
 
 ## Installation avec Docker
 
-On commence par créer les containers et initialiser la base de données
+Une fois que l'on a chargé le repo et que l'on a installé [docker](https://www.docker.com), il suffit de taper à la racine&nbsp;:
 
-```shell
-docker-compose run web python e-colle/manage.py migrate
-```
-
-puis on lance le serveur
 ```shell
 docker-compose up
 ```
