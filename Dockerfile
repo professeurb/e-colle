@@ -8,6 +8,7 @@ WORKDIR /opt/services/ecolle
 COPY requirements.txt /opt/services/ecolle/
 RUN pip install -r requirements.txt
 COPY . /opt/services/ecolle
+RUN mkdir -p /opt/services/ecolle/static
 
 EXPOSE 8000
-CMD ["gunicorn", "--chdir", "e-colle", "--bind", ":8000", "ecolle.wsgi:application"]
+# CMD ["gunicorn", "--chdir", "e-colle", "--bind", ":8000", "ecolle.wsgi:application"]

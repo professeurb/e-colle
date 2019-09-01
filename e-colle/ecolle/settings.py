@@ -97,7 +97,8 @@ STATICFILES_DIRS = (
 
 MEDIA_URL = '/media/'
 
-STATIC_URL = '/static/'
+STATIC_URL = '/ccc/'
+STATIC_ROOT = '/bbb/'
 
 APPEND_SLASH = False
 

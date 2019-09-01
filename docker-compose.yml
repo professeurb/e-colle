@@ -13,6 +13,8 @@ services:
     build: .
     volumes:
       - .:/e-colle
+      - ./static:/static
+    command: bash -c "python e-colle/manage.py collectstatic --no-input && python e-colle/manage.py makemigrations && python e-colle/manage.py migrate && gunicorn --chdir e-colle --bind :8000 ecolle.wsgi:application"
     # ports:
     #   - "8000:8000"
     depends_on:
@@ -26,6 +28,7 @@ services:
       - 8000:80
     volumes:
       - ./config/nginx/conf.d:/etc/nginx/conf.d
+      - ./static:/static
     depends_on:
       - web
     networks:
